@@ -1,0 +1,61 @@
+% Silence warnings from KOMA-Script and titlesec in classicthesis
+\RequirePackage{silence}
+    \WarningFilter{scrreprt}{Usage of package `titlesec'}
+    \WarningFilter{titlesec}{Non standard sectioning command detected}
+\documentclass[openright,titlepage,numbers=noenddot,headinclude,%twoside, %1headlines,
+                footinclude=true,cleardoublepage=empty,
+                BCOR=5mm,paper=a4,fontsize=11pt,
+                american,ngerman]{scrreprt}
+
+% Note: Make all your adjustments in one of these files
+\input{hdathesis-config}
+\input{classicthesis-config}
+
+\addbibresource{bibliography.bib}
+
+%\hyphenation{put special hyphenation here}
+
+\begin{document}
+\frenchspacing
+\raggedbottom
+\selectlanguage{ngerman} % ngerman or american
+%\renewcommand*{\bibname}{new name}
+%\setbibpreamble{}
+\pagenumbering{roman}
+\pagestyle{plain}
+
+% Frontmatter
+\include{frontbackmatter/Titlepage}
+\include{frontbackmatter/Titleback}
+%\cleardoublepage\include{frontbackmatter/Dedication}
+%\cleardoublepage\include{frontbackmatter/Foreword}
+\cleardoublepage\include{frontbackmatter/Declaration}
+\condLOCK{\cleardoublepage\include{frontbackmatter/BlockingNotice}}
+\cleardoublepage\include{frontbackmatter/AbstractEN}
+\cleardoublepage\include{frontbackmatter/AbstractDE}
+%\cleardoublepage\include{frontbackmatter/Publications}
+%\cleardoublepage\include{frontbackmatter/Acknowledgments}
+\cleardoublepage\include{frontbackmatter/Contents}
+\cleardoublepage\include{frontbackmatter/Figures}
+\cleardoublepage\include{frontbackmatter/Tables}
+\cleardoublepage\include{frontbackmatter/Listings}
+\cleardoublepage\include{frontbackmatter/Acronyms}
+
+\cleardoublepage
+\pagestyle{scrheadings}
+\pagenumbering{arabic}
+\automark[section]{chapter}
+% Always use \cleardoublepage before \part{...}.
+% \cleardoublepage
+% \part{Thesis}\label{pt:thesis} % only use if parts=true in classicthesis-config.tex
+
+% Include chapters here
+
+% Backmatter
+\appendix
+%\renewcommand{\thechapter}{\alph{chapter}}
+% \cleardoublepage
+% \part{Appendix} % only use if parts=true in classicthesis-config.tex
+
+\cleardoublepage\include{frontbackmatter/Bibliography}
+\end{document}

@@ -1,0 +1,16 @@
+\automark[section]{chapter}
+\renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\spacedlowsmallcaps{#1}}}
+\refstepcounter{dummy}
+\pdfbookmark[0]{Abk\"{u}rzungsverzeichnis}{abkuerzungsverzeichnis}
+\markboth{\spacedlowsmallcaps{Abk\"{u}rzungsverzeichnis}}{\spacedlowsmallcaps{Abk\"{u}rzungsverzeichnis}}
+\chapter*{\condENGLISH{Acronyms}{Abk\"{u}rzungsverzeichnis}}
+
+% Insert your acronyms here
+\begin{acronym}[API] % Reference the longest acronym here for correct alignment
+  \acro{DRY}{Don't Repeat Yourself}
+  \acro{API}{Application Programming Interface}
+  \acro{UML}{Unified Modeling Language}
+\end{acronym}
+
+\cleardoublepage
